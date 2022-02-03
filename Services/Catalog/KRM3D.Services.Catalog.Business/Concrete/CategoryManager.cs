@@ -16,10 +16,10 @@ namespace KRM3D.Services.Catalog.Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        private ICatagoryDal _categoryDal;
+        private ICategoryDal _categoryDal;
       private  IMapper _mapper;
 
-        public CategoryManager(ICatagoryDal categoryDal, IMapper mapper)
+        public CategoryManager(ICategoryDal categoryDal, IMapper mapper)
         {
             _categoryDal = categoryDal;
             _mapper = mapper;

@@ -24,7 +24,7 @@ namespace KRM3D.Services.Catalog.Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<MongoDbContext>().As<MongoDbContextBase>().InstancePerLifetimeScope();
             builder.RegisterType<CategoryManager>().As<ICategoryService>().InstancePerLifetimeScope();
-            builder.RegisterType<MongoDbCategoryDal>().As<ICatagoryDal>().InstancePerLifetimeScope();
+            builder.RegisterType<MongoDbCategoryDal>().As<ICategoryDal>().InstancePerLifetimeScope();
 
 
             var assembly = Assembly.GetExecutingAssembly();

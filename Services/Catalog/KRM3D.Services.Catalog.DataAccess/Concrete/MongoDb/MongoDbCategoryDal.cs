@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace KRM3D.Services.Catalog.DataAccess.Concrete.MongoDb
 {
-    public class MongoDbCategoryDal : MongoDbRepository<Category>,ICatagoryDal
+    public class MongoDbCategoryDal : MongoDbRepository<Category>,ICategoryDal
     {
         public MongoDbCategoryDal(MongoDbContextBase mongoDbConnectionSettings) : base(mongoDbConnectionSettings.connectionSettings)
         {
