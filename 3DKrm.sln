@@ -7,6 +7,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E1910D78-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Core", "Core\KRM3D.Core\KRM3D.Core.csproj", "{9ADAE0E6-FA54-4D70-98A3-D0983F0FE3A1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3E9738F3-CDDD-4071-B42C-2098D18AB05B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{F972EA1F-10FE-4D74-83E6-555B3CECAA6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Services.Catalog.Business", "Services\Catalog\KRM3D.Services.Catalog.Business\KRM3D.Services.Catalog.Business.csproj", "{967DC148-62EC-4E03-9373-6152F47003E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Services.Catalog.DataAccess", "Services\Catalog\KRM3D.Services.Catalog.DataAccess\KRM3D.Services.Catalog.DataAccess.csproj", "{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Services.Catalog.Entities", "Services\Catalog\KRM3D.Services.Catalog.Entities\KRM3D.Services.Catalog.Entities.csproj", "{4A873526-421A-4D97-A451-57FFD65D4FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Services.Catalog.WebAPI", "Services\Catalog\KRM3D.Services.Catalog.WebAPI\KRM3D.Services.Catalog.WebAPI.csproj", "{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +29,33 @@ Global
 		{9ADAE0E6-FA54-4D70-98A3-D0983F0FE3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ADAE0E6-FA54-4D70-98A3-D0983F0FE3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ADAE0E6-FA54-4D70-98A3-D0983F0FE3A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967DC148-62EC-4E03-9373-6152F47003E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967DC148-62EC-4E03-9373-6152F47003E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967DC148-62EC-4E03-9373-6152F47003E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967DC148-62EC-4E03-9373-6152F47003E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A873526-421A-4D97-A451-57FFD65D4FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A873526-421A-4D97-A451-57FFD65D4FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A873526-421A-4D97-A451-57FFD65D4FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A873526-421A-4D97-A451-57FFD65D4FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9ADAE0E6-FA54-4D70-98A3-D0983F0FE3A1} = {E1910D78-408D-41ED-9600-19CDC566577B}
+		{F972EA1F-10FE-4D74-83E6-555B3CECAA6B} = {3E9738F3-CDDD-4071-B42C-2098D18AB05B}
+		{967DC148-62EC-4E03-9373-6152F47003E6} = {F972EA1F-10FE-4D74-83E6-555B3CECAA6B}
+		{CF061FEA-292B-4FD8-9A7D-75CFEC12A62D} = {F972EA1F-10FE-4D74-83E6-555B3CECAA6B}
+		{4A873526-421A-4D97-A451-57FFD65D4FC2} = {F972EA1F-10FE-4D74-83E6-555B3CECAA6B}
+		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D} = {F972EA1F-10FE-4D74-83E6-555B3CECAA6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DA623FC-65A8-4579-9D73-ABD4DBC6F42B}
