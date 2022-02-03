@@ -10,7 +10,7 @@ namespace KRM3D.Core.DataAccess.MongoDb.Context
 {
     public abstract class MongoDbContextBase
     {
-        public readonly IConfiguration configuration;
+        public readonly IConfiguration configuration; 
         public readonly MongoDbConnectionSettings connectionSettings;
 
         public MongoDbContextBase(IConfiguration configuration)
