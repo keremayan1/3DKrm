@@ -1,0 +1,62 @@
+﻿using AutoMapper;
+using KRM3D.Core.Aspects.Validation;
+using KRM3D.Core.Utilities.Results;
+using KRM3D.Services.Catalog.Business.Abstract;
+using KRM3D.Services.Catalog.Business.ValidationRules;
+using KRM3D.Services.Catalog.DataAccess.Abstract;
+using KRM3D.Services.Catalog.Entities.Concrete;
+using KRM3D.Services.Catalog.Entities.Concrete.Dto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KRM3D.Services.Catalog.Business.Concrete
+{
+    public class CategoryManager : ICategoryService
+    {
+        private ICatagoryDal _categoryDal;
+      private  IMapper _mapper;
+
+        public CategoryManager(ICatagoryDal categoryDal, IMapper mapper)
+        {
+            _categoryDal = categoryDal;
+            _mapper = mapper;
+        }
+        [ValidationAspect(typeof(CategoryDtoValidator))]
+        public async Task<IResult> CreateAsync(CategoryDto category)
+        {
+            var categories = _mapper.Map<Category>(category);
+            await _categoryDal.AddAsync(categories);
+            return new SuccessResult("Islem Basarili");
+
+        }
+
+        public async Task<IResult> DeleteAsync(string id)
+        {
+            await _categoryDal.DeleteAsync(id);
+            return new SuccessResult("Islem Silindi");
+        }
+
+        public async Task<IDataResult<IEnumerable<CategoryDto>>> GetAllAsync()
+        {
+            var result = await _categoryDal.GetListAsync(); 
+            return new SuccessDataResult<IEnumerable<CategoryDto>>(_mapper.Map<IEnumerable<CategoryDto>>(result));
+        }
+
+        public async Task<IDataResult<CategoryDto>> GetByIdAsync(string id)
+        {
+            var result = await _categoryDal.GetByIdAsync(id);
+            return new SuccessDataResult<CategoryDto>(_mapper.Map<CategoryDto>(result));
+        }
+
+        public async Task<IResult> UpdateAsync(CategoryDto category)
+        {
+            var categories = _mapper.Map<Category>(category);
+            await _categoryDal.UpdateAsync(categories.Id,categories);
+            return new SuccessResult("Islem Basarili");
+            
+        }
+    }
+}

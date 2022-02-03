@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\KRM3D.Core\KRM3D.Core.csproj" />
+  </ItemGroup>
+
 </Project>

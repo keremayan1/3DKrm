@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\KRM3D.Core\KRM3D.Core.csproj" />
+    <ProjectReference Include="..\KRM3D.Services.Catalog.Entities\KRM3D.Services.Catalog.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
