@@ -25,6 +25,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KRM3D.IdentityServer", "Ide
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KRM3D.IdentityServerAdmin", "IdentityServer\KRM3D.IdentityServerAdmin\KRM3D.IdentityServerAdmin.csproj", "{3AECF7CD-10C1-412A-9301-DB9BAF4D1A4B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{9BF0C556-8835-44BB-A67C-75D8446CD2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRM3D.Gateway", "Gateways\KRM3D.Gateway\KRM3D.Gateway.csproj", "{33241DCB-9840-4623-A446-109C81FF3AEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{557E2EA0-0E2E-4CB3-AF76-5315B037B566}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +68,10 @@ Global
 		{3AECF7CD-10C1-412A-9301-DB9BAF4D1A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AECF7CD-10C1-412A-9301-DB9BAF4D1A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AECF7CD-10C1-412A-9301-DB9BAF4D1A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33241DCB-9840-4623-A446-109C81FF3AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33241DCB-9840-4623-A446-109C81FF3AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33241DCB-9840-4623-A446-109C81FF3AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33241DCB-9840-4623-A446-109C81FF3AEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +85,7 @@ Global
 		{D80B7F79-D9AA-4152-B7F2-1DE06EFABD6D} = {F972EA1F-10FE-4D74-83E6-555B3CECAA6B}
 		{E92DFA43-01AC-48C8-B6C9-DCA73174A739} = {ED8B0710-A782-45B2-B155-F810605F430E}
 		{3AECF7CD-10C1-412A-9301-DB9BAF4D1A4B} = {ED8B0710-A782-45B2-B155-F810605F430E}
+		{33241DCB-9840-4623-A446-109C81FF3AEA} = {9BF0C556-8835-44BB-A67C-75D8446CD2E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DA623FC-65A8-4579-9D73-ABD4DBC6F42B}

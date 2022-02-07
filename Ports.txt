@@ -1,0 +1,6 @@
+services
+	--catalogAPI=>https://localhost:7027
+
+
+gateways => https://localhost:7212
+identityserver =>https://localhost:5001

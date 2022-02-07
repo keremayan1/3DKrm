@@ -1,10 +1,12 @@
 ﻿using KRM3D.Services.Catalog.Business.Abstract;
 using KRM3D.Services.Catalog.Entities.Concrete.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KRM3D.Services.Catalog.WebAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -46,6 +48,12 @@ namespace KRM3D.Services.Catalog.WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string categoryId)
+        {
+            var result =await _categoryService.DeleteAsync(categoryId);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
     }
 }
