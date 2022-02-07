@@ -13,7 +13,9 @@ namespace KRM3D.IdentityServer
     {
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
         {
-            new ApiResource("resource_catalog"){Scopes={ "catalog_fullpermission","catalog_write","catalog_read"}},
+            new ApiResource("resource_catalog"){Scopes={ "catalog_fullpermission"}},
+
+             new ApiResource("resource_gateway") { Scopes = { "gateway_fullpermisson" } },
              new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
         };
         public static IEnumerable<IdentityResource> IdentityResources =>
@@ -31,7 +33,8 @@ namespace KRM3D.IdentityServer
                new ApiScope("catalog_fullpermission","Catalog Api icin full erisim"),
                new ApiScope("catalog_write","Catalog API icin sadece write islemi"),
                new ApiScope("catalog_read","Catalog API Icin read islemi"),
-                new ApiScope(IdentityServerConstants.LocalApi.ScopeName),
+               new ApiScope("gateway_fullpermisson","Gateway API icin full erisim"),
+               new ApiScope(IdentityServerConstants.LocalApi.ScopeName),
 
             };
 
@@ -45,7 +48,7 @@ namespace KRM3D.IdentityServer
                   ClientId = "WebMvcClient",
                   ClientSecrets = {new Secret("secret".Sha256())},
                   AllowedGrantTypes = GrantTypes.ClientCredentials,
-                  AllowedScopes = { "catalog_read", IdentityServerConstants.LocalApi.ScopeName }
+                  AllowedScopes = { "catalog_fullpermission", "gateway_fullpermisson", IdentityServerConstants.LocalApi.ScopeName }
               },
               new Client
               {
@@ -54,7 +57,7 @@ namespace KRM3D.IdentityServer
                   AllowOfflineAccess = true,
                   ClientSecrets = {new Secret("secret".Sha256())},
                   AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                  AllowedScopes = { "catalog_read", IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName, "roles"},
+                  AllowedScopes = { "catalog_fullpermission", "gateway_fullpermisson", IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName, "roles"},
                   AccessTokenLifetime = 1*60*60,
                   RefreshTokenExpiration = TokenExpiration.Absolute,
                   AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
