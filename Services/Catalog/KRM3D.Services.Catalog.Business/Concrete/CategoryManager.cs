@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using KRM3D.Core.Aspects.Validation;
+using KRM3D.Core.Utilities.Business;
 using KRM3D.Core.Utilities.Results;
 using KRM3D.Services.Catalog.Business.Abstract;
 using KRM3D.Services.Catalog.Business.ValidationRules;
@@ -35,6 +36,11 @@ namespace KRM3D.Services.Catalog.Business.Concrete
 
         public async Task<IResult> DeleteAsync(string id)
         {
+            var result = BusinessRules.Run(CheckIfCategoryIdExists(id));
+            if (result!=null)
+            {
+                return result;
+            }
             await _categoryDal.DeleteAsync(id);
             return new SuccessResult("Islem Silindi");
         }
@@ -57,6 +63,15 @@ namespace KRM3D.Services.Catalog.Business.Concrete
             await _categoryDal.UpdateAsync(categories.Id,categories);
             return new SuccessResult("Islem Basarili");
             
+        }
+        public  IResult CheckIfCategoryIdExists(string categoryId)
+        {
+            var result = _categoryDal.Any(x => x.Id == categoryId);
+            if (!result)
+            {
+                return new ErrorResult("Boyle bir id yoktur");
+            }
+            return new SuccessResult();
         }
     }
 }
