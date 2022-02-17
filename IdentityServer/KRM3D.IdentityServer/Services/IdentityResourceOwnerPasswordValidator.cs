@@ -10,7 +10,7 @@ namespace KRM3D.IdentityServer.Services
     public class IdentityResourceOwnerPasswordValidator : IResourceOwnerPasswordValidator
     {
         private readonly UserManager<ApplicationUser> _userManager;
-
+         
         public IdentityResourceOwnerPasswordValidator(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
