@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM3D.Services.Course.DataAccess.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20220305142448_ini")]
+    [Migration("20220306185023_ini")]
     partial class ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,9 @@ namespace KRM3D.Services.Course.DataAccess.Migrations
                             b1.Property<int>("CourseId")
                                 .HasColumnType("int");
 
-                            b1.Property<int>("Duration")
-                                .HasColumnType("int");
+                            b1.Property<string>("Duration")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("CourseId");
 

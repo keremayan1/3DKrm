@@ -27,5 +27,11 @@ namespace KRM3D.Services.Course.WebAPI.Controllers
             var result =await _courseService.AddAsync(course);
             return result.Success ? Ok(result) : BadRequest(result);
         }
+        [HttpPut]
+        public async Task<IActionResult> Update(Entities.Concrete.Course course)
+        {
+            var result = await _courseService.UpdateAsync(course);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
     }
 }

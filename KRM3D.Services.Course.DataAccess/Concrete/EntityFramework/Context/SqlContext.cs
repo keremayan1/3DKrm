@@ -22,7 +22,8 @@ namespace KRM3D.Services.Course.DataAccess.Concrete.EntityFramework.Context
         public DbSet<Entities.Concrete.Course> Courses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Course.Entities.Concrete.Course>().OwnsOne(x => x.Feature).WithOwner();
+            modelBuilder.Entity<Entities.Concrete.Course>().OwnsOne(x => x.Feature);
+            base.OnModelCreating(modelBuilder);
                
 
         }

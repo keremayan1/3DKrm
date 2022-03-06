@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace KRM3D.Services.Course.Entities.Concrete
 {
- 
-    public class Feature:IEntity
+
+
+    public class Feature : IEntity
     {
         public int Duration { get; set; }
     }

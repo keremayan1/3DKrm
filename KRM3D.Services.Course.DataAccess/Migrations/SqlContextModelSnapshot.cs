@@ -56,8 +56,9 @@ namespace KRM3D.Services.Course.DataAccess.Migrations
                             b1.Property<int>("CourseId")
                                 .HasColumnType("int");
 
-                            b1.Property<int>("Duration")
-                                .HasColumnType("int");
+                            b1.Property<string>("Duration")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("CourseId");
 

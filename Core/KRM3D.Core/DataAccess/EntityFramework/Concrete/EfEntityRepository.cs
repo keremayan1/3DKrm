@@ -33,22 +33,27 @@ namespace KRM3D.Core.DataAccess.EntityFramework.Concrete
 
         public async Task AddAsync(TEntity entity)
         {
-            var addedEntity = _context.Entry(entity);
-            addedEntity.State = EntityState.Added;
+            //var addedEntity = _context.Entry(entity);
+            //addedEntity.State = EntityState.Added;
+
+            await _context.AddAsync(entity);
+
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(TEntity entity)
         {
-            var deletedEntity = _context.Entry(entity);
-            deletedEntity.State = EntityState.Deleted;
+            //var deletedEntity = _context.Entry(entity);
+            //deletedEntity.State = EntityState.Deleted;
+            _context.Set<TEntity>().Remove(entity);
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(TEntity entity)
         {
-            var updatedState = _context.Entry(entity);
-            updatedState.State = EntityState.Modified;
+            //var updatedState = _context.Entry(entity);
+            //updatedState.State = EntityState.Modified;
+             _context.Set<TEntity>().Update(entity);
             await _context.SaveChangesAsync();
         }
 
