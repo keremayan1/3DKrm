@@ -45,6 +45,7 @@ namespace KRM3D.Core.DataAccess.EntityFramework.Concrete
         {
             //var deletedEntity = _context.Entry(entity);
             //deletedEntity.State = EntityState.Deleted;
+           
             _context.Set<TEntity>().Remove(entity);
             await _context.SaveChangesAsync();
         }
@@ -53,7 +54,9 @@ namespace KRM3D.Core.DataAccess.EntityFramework.Concrete
         {
             //var updatedState = _context.Entry(entity);
             //updatedState.State = EntityState.Modified;
-             _context.Set<TEntity>().Update(entity);
+           
+            _context.Update(entity);
+           
             await _context.SaveChangesAsync();
         }
 

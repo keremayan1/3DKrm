@@ -18,11 +18,13 @@ namespace KRM3D.Services.Course.DataAccess.Concrete.EntityFramework.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlConnectionStrings"));
+            
+            
         }
         public DbSet<Entities.Concrete.Course> Courses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Entities.Concrete.Course>().OwnsOne(x => x.Feature);
+            modelBuilder.Entity<Entities.Concrete.Course>().OwnsOne(x => x.Feature).WithOwner();
             base.OnModelCreating(modelBuilder);
                
 
