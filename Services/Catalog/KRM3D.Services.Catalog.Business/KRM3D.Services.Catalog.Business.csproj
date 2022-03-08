@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\KRM3D.Core\KRM3D.Core.csproj" />
     <ProjectReference Include="..\KRM3D.Services.Catalog.DataAccess\KRM3D.Services.Catalog.DataAccess.csproj" />
     <ProjectReference Include="..\KRM3D.Services.Catalog.Entities\KRM3D.Services.Catalog.Entities.csproj" />

@@ -55,5 +55,11 @@ namespace KRM3D.Services.Catalog.WebAPI.Controllers
             var result =await _categoryService.DeleteAsync(categoryId);
             return result.Success ? Ok(result) : BadRequest(result);
         }
+        [HttpPut]
+        public async Task<IActionResult> Update(CategoryDto category)
+        {
+            var result = await _categoryService.UpdateAsync(category);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
     }
 }

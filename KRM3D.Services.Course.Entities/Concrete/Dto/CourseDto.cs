@@ -11,6 +11,7 @@ namespace KRM3D.Services.Course.Entities.Concrete.Dto
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public string CourseName { get; set; }
         public string Picture { get; set; }
         public DateTime CreatedTime { get; set; }

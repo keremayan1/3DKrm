@@ -32,6 +32,11 @@ namespace KRM3D.Services.Course.Business.Concrete
             return new SuccessDataResult<List<Entities.Concrete.Course>>(await _courseDal.GetAllAsync());
         }
 
+        public async Task<IDataResult<List<CourseDto>>> GetAllAsync2()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IResult> UpdateAsync(Entities.Concrete.Course course)
         {
             await _courseDal.UpdateAsync(course);

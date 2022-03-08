@@ -15,11 +15,11 @@ namespace KRM3D.Services.Course.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Picture = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Feature_Duration = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Feature_Duration = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

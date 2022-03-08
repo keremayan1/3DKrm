@@ -11,6 +11,7 @@ namespace KRM3D.Services.Course.Business.Abstract
     public interface ICourseService
     {
         public Task<IDataResult<List<Entities.Concrete.Course>>> GetAllAsync();
+        public Task<IDataResult<List<CourseDto>>> GetAllAsync2();
         public Task<IResult> AddAsync(Entities.Concrete.Course course);
         public Task<IResult> UpdateAsync(Entities.Concrete.Course course);
     }

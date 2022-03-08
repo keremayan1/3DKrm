@@ -1,11 +1,25 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using KRM3D.Services.Course.Business.Consumer;
 using KRM3D.Services.Course.Business.DependencyResolvers.Autofac;
 using KRM3D.Services.Course.DataAccess.Concrete.EntityFramework.Context;
 using KRM3D.Services.Course.DataAccess.Mapping;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<CategoryNameChangedEventConsumer>();
+    x.UsingRabbitMq((context, configuration) =>
+    {
+        configuration.Host(builder.Configuration.GetConnectionString("RabbitMQConnectionStrings"));
+        configuration.ReceiveEndpoint("category-changed-name-queue", e =>
+        {
+            e.ConfigureConsumer<CategoryNameChangedEventConsumer>(context);
+        });
+    });
+});
+builder.Services.AddMassTransitHostedService();
 // Add services to the container.
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
 {

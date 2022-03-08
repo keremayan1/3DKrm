@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using KRM3D.Core.Aspects.Validation;
+using KRM3D.Core.Messages;
 using KRM3D.Core.Utilities.Business;
 using KRM3D.Core.Utilities.Results;
 using KRM3D.Services.Catalog.Business.Abstract;
@@ -7,6 +8,7 @@ using KRM3D.Services.Catalog.Business.ValidationRules;
 using KRM3D.Services.Catalog.DataAccess.Abstract;
 using KRM3D.Services.Catalog.Entities.Concrete;
 using KRM3D.Services.Catalog.Entities.Concrete.Dto;
+using MassTransit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +21,14 @@ namespace KRM3D.Services.Catalog.Business.Concrete
     {
         private ICategoryDal _categoryDal;
       private  IMapper _mapper;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public CategoryManager(ICategoryDal categoryDal, IMapper mapper)
+
+        public CategoryManager(ICategoryDal categoryDal, IMapper mapper, IPublishEndpoint publishEndpoint)
         {
             _categoryDal = categoryDal;
             _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
         }
         [ValidationAspect(typeof(CategoryDtoValidator))]
         public async Task<IResult> CreateAsync(CategoryDto category)
@@ -61,6 +66,7 @@ namespace KRM3D.Services.Catalog.Business.Concrete
         {
             var categories = _mapper.Map<Category>(category);
             await _categoryDal.UpdateAsync(categories.Id,categories);
+            await _publishEndpoint.Publish<CategoryNameChangedEvent>(new CategoryNameChangedEvent { CategoryId = categories.Id, UpdatedName = categories.Name });
             return new SuccessResult("Islem Basarili");
             
         }

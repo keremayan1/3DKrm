@@ -30,8 +30,9 @@ namespace KRM3D.Services.Course.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<string>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CourseName")
                         .IsRequired()
@@ -56,9 +57,8 @@ namespace KRM3D.Services.Course.DataAccess.Migrations
                             b1.Property<int>("CourseId")
                                 .HasColumnType("int");
 
-                            b1.Property<string>("Duration")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<int>("Duration")
+                                .HasColumnType("int");
 
                             b1.HasKey("CourseId");
 

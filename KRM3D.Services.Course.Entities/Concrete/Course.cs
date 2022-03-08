@@ -10,7 +10,7 @@ namespace KRM3D.Services.Course.Entities.Concrete
     public class Course:IEntity
     {
         public int Id { get; set; }
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public string CourseName { get; set; }
         public string Picture { get; set; }
         public DateTime CreatedTime { get; set; }

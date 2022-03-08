@@ -4,12 +4,20 @@ using KRM3D.Core.DependencyResolvers.MongoDb;
 using KRM3D.Core.Extensions;
 using KRM3D.Services.Catalog.Business.DependencyResolvers.Autofac;
 using KRM3D.Services.Catalog.DataAccess.Mapping.AutoMapper;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, configuration) =>
+    {
+        configuration.Host(builder.Configuration.GetConnectionString("RabbitMQConnectionStrings"));
+    });
+});
+builder.Services.AddMassTransitHostedService();
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule(new AutofacBusinessModule());
